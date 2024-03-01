@@ -1,16 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Carousel } from './components/carousel'
+import { Categories } from './components/categories'
+import { Footer } from './components/footer'
 import { Navbar } from './components/navbar'
+import { NewProducts } from './components/newProducts'
+import { SpecialOffer } from './components/specialOffer'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Navbar />
-    </>
+    <div className='w-4/5 mx-auto'>
+      <Navbar/>
+      <Carousel/>
+      <Categories/>
+      <SpecialOffer/>
+      <NewProducts/>
+      <Footer/>
+    </div>
   )
 }
 
