@@ -16,7 +16,7 @@ export const NewProducts = () => {
                                 <div className="card-actions justify-start">
                                     <button className="btn btn-primary">Buy Now</button>
                                 </div>
-                                <div className="card-actions content-center">
+                                <div className="card-actions content-center flex  justify-center">
                                     <div className="badge badge-outline">Fashion</div>
                                     <div className="badge badge-outline">Products</div>
                                 </div>
@@ -35,7 +35,7 @@ export const NewProducts = () => {
                                 <div className="card-actions justify-start">
                                     <button className="btn btn-primary">Buy Now</button>
                                 </div>
-                                <div className="card-actions content-center">
+                                <div className="card-actions content-center flex  justify-center">
                                     <div className="badge badge-outline">Fashion</div>
                                     <div className="badge badge-outline">Products</div>
                                 </div>
@@ -54,7 +54,7 @@ export const NewProducts = () => {
                                 <div className="card-actions justify-start">
                                     <button className="btn btn-primary">Buy Now</button>
                                 </div>
-                                <div className="card-actions content-center">
+                                <div className="card-actions content-center flex  justify-center">
                                     <div className="badge badge-outline">Fashion</div>
                                     <div className="badge badge-outline">Products</div>
                                 </div>
@@ -73,7 +73,7 @@ export const NewProducts = () => {
                                 <div className="card-actions justify-start">
                                     <button className="btn btn-primary">Buy Now</button>
                                 </div>
-                                <div className="card-actions content-center">
+                                <div className="card-actions content-center flex  justify-center">
                                     <div className="badge badge-outline">Fashion</div>
                                     <div className="badge badge-outline">Products</div>
                                 </div>

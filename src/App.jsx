@@ -8,14 +8,18 @@ import { SpecialOffer } from './components/specialOffer'
 function App() {
 
   return (
-    <div className='w-4/5 mx-auto'>
-      <Navbar/>
-      <Carousel/>
-      <Categories/>
-      <SpecialOffer/>
-      <NewProducts/>
-      <Footer/>
-    </div>
+    <>
+        <Navbar />
+      <div className='w-4/5 mx-auto'>
+        <Carousel />
+        <Categories />
+        <SpecialOffer />
+        <NewProducts />
+      </div>
+      <div>
+        <Footer />
+      </div>
+    </>
   )
 }
 
