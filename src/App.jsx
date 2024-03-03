@@ -10,7 +10,7 @@ function App() {
   return (
     <>
         <Navbar />
-      <div className='w-4/5 mx-auto'>
+      <div className='w-11/12 md:w-4/5 mx-auto'>
         <Carousel />
         <Categories />
         <SpecialOffer />
