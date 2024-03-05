@@ -4,6 +4,7 @@ import { Footer } from './components/footer'
 import { Navbar } from './components/navbar'
 import { NewProducts } from './components/newProducts'
 import { SpecialOffer } from './components/specialOffer'
+import { ThemeChanger } from './components/themeChanger'
 import {categoriesProps} from './props/categoriesProps'
 import { productsData } from './props/productsProps'
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <div>
         <Footer />
       </div>
+        <ThemeChanger/>
     </>
   )
 }

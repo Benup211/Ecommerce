@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { ThemeChanger } from '../components/themeChanger';
 
 const LoginPage = () => {
     return (
+        <>
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content max-w-xl lg:max-w-4xl md:max-w-3xl flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
@@ -32,6 +34,8 @@ const LoginPage = () => {
                 </div>
             </div>
         </div>
+        <ThemeChanger/>
+        </>
     );
 };
 

@@ -16,5 +16,23 @@ export const productsData = [
         isNew: true,
         description: 'New Apple laptop with 16GB RAM and 1TB SSD storage.',
         categories: ['Laptop', 'Computers']
+    },
+    {
+      id:3,
+      imageSrc:"https://hardwarepasal.com/src/img/product/2021-08-29-06-45-56_t0k7VO58Ctproduct.png",
+      altText: 'Gaming Keyboard',
+      title: 'Meetion MK600RD Gaming Keyboard',
+      isNew: false,
+      description: 'Mechanical gaming keyboard with RGB lighting.',
+      categories: ['Keyboard', 'Gaming']
+    },
+    {
+      id:4,
+      imageSrc:"https://hammeronline.in/cdn/shop/files/HammerBash2.0Headphones.webp?v=1690436990&width=1080",
+      altText: 'Headphones',
+      title: 'Hammer Bash 2.0 Headphones',
+      isNew: true,
+      description: 'Wireless headphones with noise cancellation.',
+      categories: ['Headphones', 'Audio']
     }
   ];

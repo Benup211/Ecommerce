@@ -3,7 +3,7 @@ export const NewProducts = ({ productsData }) => {
         <>
             <div className="my-3">
                 <h2 className="text-xl font-medium mb-3">New Products</h2>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-8">
                     {productsData.map((product,index) => (
                         <div className="card w-80 bg-base-100 shadow-xl">
                             <figure>
