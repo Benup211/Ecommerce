@@ -9,7 +9,24 @@ export const Navbar = () => {
             </div>
             <ul tabIndex={0} className="menu menu-lg w-screen -m-3 dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box">
               <div className="form-control">
-                <input type="text" placeholder="Search" className="input input-bordered w-full md:w-auto" />
+                <form action="#" method="get">
+                  <select name="term" className="select select-bordered w-full">
+                    <option value="">All Categories</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="monitor">Monitor</option>
+                    <option value="desktop">Desktop</option>
+                    <option value="accessories">Accessories</option>
+                  </select>
+                  <div className="search-table">
+                    <div>
+                      <input type="text" className="input w-full input-bordered" name="search" placeholder="Search for products" autocomplete="off" />
+                      <input type="hidden" name="post_type" value="product" />
+                      <div className="search-button">
+                        <input type="submit" className="btn btn-primary w-full mt-3" title="Search" value="Search" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </ul>
           </div>
@@ -17,8 +34,25 @@ export const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <div className="form-control">
-              <input type="text" placeholder="Search" className="input input-bordered w-96" />
+            <div className="">
+              <form action="#" method="get" className="flex justify-center flex-wrap">
+                <select name="term" className="select select-bordered max-w-xs">
+                  <option value="">All Categories</option>
+                  <option value="laptop">Laptop</option>
+                  <option value="monitor">Monitor</option>
+                  <option value="desktop">Desktop</option>
+                  <option value="accessories">Accessories</option>
+                </select>
+                <div className="search-table">
+                  <div className="flex justify-center flex-wrap">
+                    <input type="text" className="input input-bordered" name="search" placeholder="Search for products" autocomplete="off" />
+                    <input type="hidden" name="post_type" value="product" />
+                    <div className="search-button">
+                      <input type="submit" className="btn btn-primary" title="Search" value="Search" />
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </ul>
         </div>

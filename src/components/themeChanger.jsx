@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export const ThemeChanger = () => {
-    const [theme, setTheme] = useState('dracula');
+    const [theme, setTheme] = useState('nord');
 
     useEffect(() => {
         const rootElement = document.documentElement;
@@ -17,12 +17,12 @@ export const ThemeChanger = () => {
         <div className='flex justify-end content-center'>
             <label htmlFor="theme-select" className=' justify-self-center'>Theme:</label>
             <select id="theme-select" value={theme} onChange={handleThemeChange}>
-                <option value="dracula" selected>Dracula Theme</option>
+                <option value="dracula">Dracula Theme</option>
                 <option value="luxury">Luxury Theme</option>
                 <option value="cyberpunk">Cyberpunk Theme</option>
                 <option value="synthwave">Synthwave Theme</option>
                 <option value="retro">Retro Theme</option>
-                <option value="nord">Nord Theme</option>
+                <option value="nord" selected>Nord Theme</option>
                 <option value="emerald">Emerald Theme</option>
             </select>
         </div>
