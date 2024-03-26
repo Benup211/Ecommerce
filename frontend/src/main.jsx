@@ -4,6 +4,8 @@ import App from './App.jsx'
 import LoginPage from './pages/loginPage.jsx'
 import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import ProductDetail from './pages/productdetail.jsx'
+import { Page404 } from './components/page404.jsx'
 
 const router=createBrowserRouter([
   {
@@ -13,6 +15,14 @@ const router=createBrowserRouter([
   {
     path:"/login",
     element:<LoginPage/>
+  },
+  {
+    path:"/products/:string/:slug",
+    element:<ProductDetail/>
+  },
+  {
+    path:"*",
+    element:<Page404/>
   }
 ]);
 
