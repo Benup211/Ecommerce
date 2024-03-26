@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 export const NewProducts = ({ productsData }) => {
     return (
         <>
@@ -11,7 +12,7 @@ export const NewProducts = ({ productsData }) => {
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">
-                                    {product.title}
+                                    <Link to='/products/laptop/mac'>{product.title}</Link>
                                     {product.isNew && <div className="badge badge-secondary">NEW</div>}
                                 </h2>
                                 <p>{product.description}</p>

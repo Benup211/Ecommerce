@@ -3,6 +3,7 @@ import { Ladder } from "../components/ladder";
 import { Navbar } from "../components/navbar";
 import { NewProducts } from "../components/newProducts";
 import { productsData } from '../props/productsProps'
+import { Footer } from "../components/footer";
 
 const ProductDetail = () => {
     return (
@@ -13,6 +14,7 @@ const ProductDetail = () => {
                 <Description />
                 <NewProducts productsData={productsData}/>
             </div>
+            <Footer/>
         </>
     );
 }
