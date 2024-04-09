@@ -117,6 +117,27 @@ export const Description = () => {
                         </div>
                         <textarea className="input input-bordered input-lg w-full max-w-xs" name="youur_rating" cols="30" rows="30"></textarea>
                         <input className="input input-bordered input-lg bg-primary" type="submit" value="submit" />
+                        <div className=" self-start flex gap-2 items-center">
+                            <div className="avatar">
+                                <div className="w-24 rounded">
+                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </div>
+                            <div>
+                                <p>Superb conditioned refurbished Mac, well packaged, out of the box as new, great purchase!</p>
+                                <div className="flex gap-2">
+                                    <b>John Doe</b>
+                                    <p>JAN 22, 2024</p>
+                                    <div className="rating">
+                                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

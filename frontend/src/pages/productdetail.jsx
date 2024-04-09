@@ -1,8 +1,8 @@
 import { Description } from "../components/description";
 import { Ladder } from "../components/ladder";
 import { Navbar } from "../components/navbar";
-import { NewProducts } from "../components/newProducts";
-import { productsData } from '../props/productsProps'
+import { SimilarProducts  } from "../components/similarProduct";
+import { similarProps } from "../props/simlarProps";
 import { Footer } from "../components/footer";
 
 const ProductDetail = () => {
@@ -12,7 +12,7 @@ const ProductDetail = () => {
             <Ladder />
             <div className='w-11/12 md:w-4/5 mx-auto'>
                 <Description />
-                <NewProducts productsData={productsData}/>
+                <SimilarProducts productsData={similarProps}/>
             </div>
             <Footer/>
         </>

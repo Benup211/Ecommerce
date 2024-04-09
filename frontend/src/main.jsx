@@ -6,6 +6,7 @@ import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import ProductDetail from './pages/productdetail.jsx'
 import { Page404 } from './components/page404.jsx'
+import { Cart } from './pages/cart.jsx'
 
 const router=createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router=createBrowserRouter([
   {
     path:"/products/:string/:slug",
     element:<ProductDetail/>
+  },
+  {
+    path:"/cart",
+    element:<Cart/>
   },
   {
     path:"*",

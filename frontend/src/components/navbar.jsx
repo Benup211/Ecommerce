@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export const Navbar = () => {
   return (
     <div className="w-full rounded-b-2xl bg-base-300 mb-3">
@@ -30,7 +31,7 @@ export const Navbar = () => {
               </div>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Elextra</a>
+          <Link to='/'><a className="btn btn-ghost text-xl">Elextra</a></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
