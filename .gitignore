@@ -24,3 +24,9 @@ backend/__pycache__
 *.sln
 *.sw?
 .vite
+
+media/
+__pycache__/
+migrations/
+.venv/
+.env
