@@ -1,5 +1,11 @@
 from django.db import models
 
+class ProductImage(models.Model):
+    image = models.ImageField(upload_to='laptop_images')
+
+    def __str__(self):
+        return f"Image {self.id}"
+    
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -8,23 +14,6 @@ class Category(models.Model):
     class Meta:
         verbose_name="category"
         verbose_name_plural="categories"
-
-
-class Laptop(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantity = models.PositiveIntegerField()
-    details = models.ForeignKey('LaptopDetail', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-class ProductImage(models.Model):
-    image = models.ImageField(upload_to='laptop_images')
-
-    def __str__(self):
-        return f"Image {self.id}"
 
 class LaptopDetail(models.Model):
     display_size = models.CharField(max_length=200)
@@ -37,3 +26,13 @@ class LaptopDetail(models.Model):
 
     def __str__(self):
         return f"Laptop Detail {self.id}"
+class Laptop(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField()
+    details = models.ForeignKey(LaptopDetail, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
