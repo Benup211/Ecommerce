@@ -20,8 +20,24 @@ class LaptopDetailSchema(BaseModel):
     images: List[str]
 
 class LaptopSchema(BaseModel):
+    id:int
     category: CategorySchema
     name: str
     price: float
     quantity: int
     details: LaptopDetailSchema
+
+class CarouselSchema(BaseModel):
+    name:str
+    desc:str
+    image:str
+    laptop_id:int
+
+class CategorieSchema(BaseModel):
+    id:int
+    name:str
+    image:str
+
+class CartSchema(BaseModel):
+    id:int
+    quantity:int

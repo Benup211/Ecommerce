@@ -17,3 +17,7 @@ class AdminLaptopDetail(ModelAdmin):
 @admin.register(ProductImage)
 class AdminProdictImage(ModelAdmin):
     pass
+
+@admin.register(CarouselData)
+class AdminCarouselData(ModelAdmin):
+    list_display=['name','image','desc']
