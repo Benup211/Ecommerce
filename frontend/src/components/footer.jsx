@@ -67,7 +67,6 @@ const Footer = () => {
           </section>
           <div className="text-center p-3">
             <hr />
-            <p>Elextra is Nepal's premier laptop retailer, specializing in providing customers with a wide selection of high-quality laptops at competitive prices. With a strong focus on customer satisfaction, we have built a reputation for being the go-to destination for laptop purchases in the country. Our 15 years of industry expertise have allowed us to curate a diverse range of laptops, catering to the unique requirements of every customer.</p>
             <p>At Elextra, we understand that finding the perfect laptop can be a daunting task, especially considering the limited availability and high prices in the market. That's why we have made it our mission to offer a comprehensive range of laptops, including regular models, gaming laptops, and thin and light ultrabooks. We believe that everyone deserves to find a laptop that perfectly fits their needs and budget.</p>
             <hr/>
           </div>

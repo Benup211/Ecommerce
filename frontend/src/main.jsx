@@ -4,6 +4,7 @@ import App from './App.jsx'
 import ProductList from './List.jsx'
 import ProductDetail from './Detail.jsx'
 import CheckoutCart from './Cart.jsx'
+import QueryList from './Query.jsx'
 import EsewaPaymentForm from './components/payment.jsx'
 import {
   createBrowserRouter,
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path:"/payment/",
     element:<EsewaPaymentForm/>
+  },
+  {
+    path:"/query/",
+    element:<QueryList/>
   }
 ]);
 

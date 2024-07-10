@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer,toast } from 'react-toastify';
 
 function ShoppingCart() {
   const [cartItems, setCartItems] = useState({});
@@ -20,8 +21,8 @@ function ShoppingCart() {
   const decreaseQuantity = (itemId) => {
     const updatedCartItems = { ...cartItems };
     updatedCartItems[itemId].order -= 1;
-    if (updatedCartItems[itemId].order < 0) {
-      updatedCartItems[itemId].order = 0;
+    if (updatedCartItems[itemId].order < 1) {
+      updatedCartItems[itemId].order = 1;
     }
     setCartItems(updatedCartItems);
     localStorage.setItem('cart', JSON.stringify(updatedCartItems));
@@ -49,6 +50,7 @@ function ShoppingCart() {
   const handleDeleteItem = (itemId) => {
     const updatedCartItems = { ...cartItems };
     delete updatedCartItems[itemId];
+    toast.success('Item removed from cart');
     setCartItems(updatedCartItems);
     localStorage.setItem('cart', JSON.stringify(updatedCartItems));
   };
@@ -78,7 +80,7 @@ function ShoppingCart() {
                       {Object.keys(cartItems).map(itemId => (
                         <div key={itemId} className="row mb-4 d-flex justify-content-between align-items-center">
                           <div className="col-md-3 col-lg-3 col-xl-3">
-                            <h6 className="text-black mb-0">{cartItems[itemId].name}</h6>
+                          <a href={`/product/${cartItems[itemId].id}`} className="text-black mb-0">{cartItems[itemId].name}</a>
                           </div>
                           <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
                             <button 
@@ -143,6 +145,7 @@ function ShoppingCart() {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </section>
   );
 }
