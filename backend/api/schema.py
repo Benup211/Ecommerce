@@ -2,10 +2,10 @@ from pydantic import BaseModel
 from typing import List
 
 class SimpleProductOut(BaseModel):
-    id:int
-    name:str
-    price:float
-    details_image:List[str]
+    id: int
+    name: str
+    price: float
+    details_image: List[str]
 
 class CategorySchema(BaseModel):
     name: str

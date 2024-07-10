@@ -34,7 +34,7 @@ def get_limited_product(request,limit:int=10,desc:bool=False):
 
     return product_list
 
-@router.get('query/',response=[SimpleProductOut],tags=['Search Products'])
+@router.get('query/',response=List[SimpleProductOut],tags=['Search Products'])
 def query_product(request,s:str):
     """
     Query given string for the laptop
