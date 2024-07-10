@@ -14,6 +14,7 @@ function ShoppingCart() {
     if (storedCart) {
       setCartItems(JSON.parse(storedCart));
     }
+    console.log(storedCart);
   }, []);
 
   const decreaseQuantity = (itemId) => {
@@ -112,7 +113,7 @@ function ShoppingCart() {
                       <hr className="my-4" />
 
                       <div className="pt-5">
-                        <h6 className="mb-0"><a href="#!" className="text-body"><i className="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                        <h6 className="mb-0"><a href="/list" className="text-body"><i className="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
                       </div>
                     </div>
                   </div>

@@ -25,19 +25,20 @@ const Categories = () => {
       <div className="container mt-2">
         <h5 className='text-center text-uppercase'>Categories</h5>
         <Swiper
-          slidesPerView={10}
+          slidesPerView={1}
           spaceBetween={5}
           pagination={{
             clickable: true,
           }}
           modules={[Pagination]}
-          className="mySwiper category"
-        >
+          className="mySwiper category">
+          <div id="allcategory">
+            <SwiperSlide >
           {categories.map(category => (
-            <SwiperSlide key={category.name}>
-              <img className="category-img" src={`http://127.0.0.1:8000/media/${category.image}`} alt={category.name}/>
+              <img key={category.name} className="category-img" src={`http://127.0.0.1:8000/media/${category.image}`} alt={category.name}/>
+            ))}
             </SwiperSlide>
-          ))}
+          </div>
         </Swiper>
       </div>
     </>

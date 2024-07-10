@@ -146,8 +146,8 @@ const Laptops = () => {
                         {products.length === 0 && <h3>No products found</h3>}
                         {
                             products.map((product) => (
-                                <div className="col-sm-12 col-md-5 col-lg-5" key={product.id}>
-                                    <Card className="p-2" style={{ width: '20rem', border: 'none' }}>
+                                <div className="col-sm-12 col-md-8 col-lg-5" key={product.id}>
+                                    <Card className="p-2" style={{ width: '20rem',height:'100%', border: 'none' }}>
                                         <Card.Img
                                             variant="top"
                                             src={`http://127.0.0.1:8000${product.details_image[0]}`}
