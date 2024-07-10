@@ -34,6 +34,27 @@ def get_limited_product(request,limit:int=10,desc:bool=False):
 
     return product_list
 
+@router.get('query/',response=[SimpleProductOut],tags=['Search Products'])
+def query_product(request,s:str):
+    """
+    Query given string for the laptop
+    """
+    laptops = Laptop.objects.filter(name__icontains=s)
+    product_list = []
+
+    for laptop in laptops:
+        detail = laptop.details
+        images = detail.images.all()
+        image_urls = [image.image.url for image in images]
+        
+        laptop_dict = laptop.__dict__
+        laptop_dict['details_image'] = image_urls
+
+        product = SimpleProductOut(**laptop_dict)
+
+        product_list.append(product)
+    return product_list
+
 @router.get('all/',response=List[SimpleProductOut],tags=['Products'])
 def get_all_product(request,price_from:int=0,price_to:int=0,brand:int=0):
     """
@@ -43,6 +64,8 @@ def get_all_product(request,price_from:int=0,price_to:int=0,brand:int=0):
     if price_from==0 and price_to==0 and brand==0:
         laptops = Laptop.objects.all()
     else:
+        if price_to==0:
+            price_to=10000000
         laptops= Laptop.objects.filter(
         Q(price__gte=price_from) & Q(price__lte=price_to) & Q(category_id=brand)
     )
@@ -59,7 +82,6 @@ def get_all_product(request,price_from:int=0,price_to:int=0,brand:int=0):
         product = SimpleProductOut(**laptop_dict)
 
         product_list.append(product)
-
     return product_list
 
 @router.get('get/{id}/',tags=['Products'])
