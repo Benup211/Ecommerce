@@ -69,10 +69,21 @@ const BestProducts = () => {
         navigation={true}
         modules={[Navigation]}
         className="mySwiper product"
+        breakpoints={{
+          360: {
+            slidesPerView: 1,
+          },
+          500: {
+            slidesPerView: 2,
+          },
+          768:{
+            slidesPerView: 4,
+          }
+        }}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id}>
-            <Card className="p-2" style={{ width: '20rem', border: 'none' }}>
+          <SwiperSlide key={product.id} style={{height:'30rem'}}>
+            <Card className="p-2" style={{ width: '20rem',height:'100%', border: 'none' }}>
               <Card.Img
                 variant="top"
                 src={`http://127.0.0.1:8000${product.details_image[0]}`}
