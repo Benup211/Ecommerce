@@ -1,9 +1,11 @@
 from ninja import Router,NinjaAPI
-from product.models import Category,Laptop,LaptopDetail,ProductImage,CarouselData
+from product.models import Category,Laptop,LaptopDetail,ProductImage,CarouselData,Order
+from django.contrib.auth import authenticate
 from .schema import *
 from typing import List
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from registeredUser.models import User
 
 router=Router()
 
@@ -141,3 +143,64 @@ def check_laptop(request,data:CartSchema):
             request,
             {"message":"Unsucessfully! Low on Stock",
             },status=400)
+    
+@router.post('register/',tags=['Authentication'])
+def registerUser(request,data:RegisterIn):
+    user=User.objects.create_user(email=data.email,
+                                  password=data.password,
+                                  first_name=data.firstName,
+                                  last_name=data.lastName,
+                                  phone_number=data.phoneNo,
+                                    address=data.address,
+                                    street=data.street,
+                                    house_no=data.houseNo)
+    if user:
+        return NinjaAPI().create_response(request,{"message": "User registered successfully."}, status=201)
+    else:
+        return NinjaAPI().create_response(request,{"message": "User registered unsuccessfully."}, status=400)
+
+@router.post('login/',tags=['Authentication'])
+def loginUser(request,data:LoginIn):
+    user=authenticate(email=data.email,password=data.password)
+    if user:
+        return NinjaAPI().create_response(request,{"message": "User login successfully.","id":user.id}, status=200)
+    else:
+        return NinjaAPI().create_response(request,{"message": "User login unsuccessfully."}, status=400)
+
+@router.post('account/',tags=['account'])
+def userAccount(request,data:AccountIn):
+    user=User.objects.get(id=data.id)
+    if user:
+        return NinjaAPI().create_response(request,{"message": "Account Data Fetched",
+                                                   "first_name":user.first_name,
+                                                    "last_name":user.last_name,
+                                                    "phone_number":user.phone_number,
+                                                        "address":user.address,
+                                                        "street":user.street,
+                                                        "house_no":user.house_no}, status=200)
+    else:
+        return NinjaAPI().create_response(request,{"message": "Account Data Fetched Error"}, status=400)
+
+@router.post('order/',tags=['order'])
+def userOrder(request,data:OrderIn):
+    user=User.objects.get(id=data.userId)
+    product=Laptop.objects.get(id=data.productId)
+    order=Order.objects.create(order_laptop=product,order_user=user,quantity=data.order)
+    if order:
+         return NinjaAPI().create_response(request,{"message": "Order placed sucessful"}, status=200)
+    else:
+        return NinjaAPI().create_response(request,{"message": "Order placed unsucessful"}, status=400)
+    
+@router.post('orderDetail/',tags=['order'])
+def getAllOrder(request,data:AccountIn):
+    try:
+        user=User.objects.get(id=data.id)
+        orders=Order.objects.filter(order_user=user)
+        order_list=[]
+        for order in orders:
+            order_dict = {'laptop_name': order.order_laptop.name,'quantity': order.quantity,'delivery_status': order.delivery}
+            order_list.append(order_dict)
+            
+        return NinjaAPI().create_response(request,{'list':order_list,'message': 'Orders fetched'}, status=200)
+    except:
+       return NinjaAPI().create_response(request,{'message': 'Orders fetch Error'}, status=400)

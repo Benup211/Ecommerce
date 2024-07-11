@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,EmailStr
 from typing import List
 
 class SimpleProductOut(BaseModel):
@@ -7,6 +7,25 @@ class SimpleProductOut(BaseModel):
     price: float
     details_image: List[str]
 
+class RegisterIn(BaseModel):
+    firstName:str
+    lastName:str
+    email:EmailStr
+    password:str
+    phoneNo:str
+    address:str
+    street:str
+    houseNo:str
+
+class LoginIn(BaseModel):
+    email:EmailStr
+    password:str
+class AccountIn(BaseModel):
+    id:int
+class OrderIn(BaseModel):
+    userId:int
+    productId:int
+    order:int
 class CategorySchema(BaseModel):
     name: str
 

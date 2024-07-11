@@ -21,3 +21,7 @@ class AdminProdictImage(ModelAdmin):
 @admin.register(CarouselData)
 class AdminCarouselData(ModelAdmin):
     list_display=['name','image','desc']
+
+@admin.register(Order)
+class AdminOrder(ModelAdmin):
+    list_display=['order_laptop','order_user','quantity','delivery','date']

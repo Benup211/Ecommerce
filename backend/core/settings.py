@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'product',
     'api',
-    "corsheaders"
+    "corsheaders",
+    "registeredUser"
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,21 @@ UNFOLD = {
     "SITE_HEADER": "Elextra",
     "SITE_URL": "/"
 }
+
+AUTH_USER_MODEL = 'registeredUser.User'
+AUTHENTICATION_BACKENDS= [
+    'registeredUser.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+# import os
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'benup211@gmail.com'
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+# EMAIL_USE_TLS = True
+#email
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '9b56662bd9bc00'
+EMAIL_HOST_PASSWORD = '2b8b2184d7cb60'
+EMAIL_PORT = '2525'

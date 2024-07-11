@@ -1,5 +1,5 @@
 from django.db import models
-        
+from registeredUser.models import User
 class ProductImage(models.Model):
     image = models.ImageField(upload_to='laptop_images')
 
@@ -41,3 +41,10 @@ class CarouselData(models.Model):
     desc=models.CharField(max_length=200)
     image=models.ImageField(upload_to="carousel")
     laptop=models.OneToOneField(Laptop,on_delete=models.CASCADE)
+
+class Order(models.Model):
+    order_laptop=models.ForeignKey(Laptop,on_delete=models.CASCADE)
+    quantity=models.IntegerField()
+    order_user=models.ForeignKey(User,on_delete=models.CASCADE)
+    delivery=models.CharField(max_length=100,default="pending")
+    date=models.DateTimeField(auto_now_add=True)
