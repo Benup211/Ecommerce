@@ -2,11 +2,12 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShop, faSearch, faCartPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isIdExists, setIsIdExists] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate();
 
@@ -16,10 +17,23 @@ const Navbar = () => {
       navigate(`/query?s=${encodeURIComponent(searchValue)}`);
     }
   };
+  useEffect(() => {
+    if (localStorage.getItem('id')) {
+      setIsIdExists(true);
+    } else {
+      setIsIdExists(false);
+    }
+  }, []);
   const toggleMenu = () => {
     console.log('clicked');
     setIsMenuOpen(!isMenuOpen);
   };
+  const handleLogout = () => {
+    localStorage.removeItem('id');
+    setIsIdExists(false);
+    navigate('/');
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
       <div className="container">
@@ -67,11 +81,11 @@ const Navbar = () => {
                 className="form-control border-danger"
                 style={{ color: '#7a7a7a' }}
                 value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+                onChange={(e) => setSearchValue(e.target.value)}
               />
               <button className="btn btn-danger text-white" onClick={handleSearch}>
-              Search
-            </button>
+                Search
+              </button>
             </div>
           </div>
           <ul className="navbar-nav ms-auto">
@@ -81,15 +95,19 @@ const Navbar = () => {
               </a>
 
             </li>
-            <li className="nav-item">
-              <a
-                className="nav-link mx-2 text-uppercase"
-                aria-current="page"
-                href="#"
-              >
-                Offers
-              </a>
-            </li>
+            {isIdExists ? (
+              <li className="nav-item">
+                <a
+                  className="nav-link mx-2 text-uppercase"
+                  aria-current="page"
+                  href="#"
+                >
+                  Recommends
+                </a>
+              </li>
+            ) : (
+              null
+            )}
           </ul>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -97,11 +115,21 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={faCartPlus} className="me-1" /> Cart
               </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">
+            {isIdExists ? (
+              <li className="nav-item d-flex">
+              <a className="nav-link mx-2 text-uppercase" href="/account">
                 <FontAwesomeIcon icon={faUserCircle} className="me-1" /> Account
               </a>
+              <button className="nav-link mx-2 text-uppercase" onClick={handleLogout}>Logout
+              </button>
             </li>
+            ) : (
+              <li className="nav-item">
+              <a className="nav-link mx-2 text-uppercase" href="/login">
+                <FontAwesomeIcon icon={faUserCircle} className="me-1" /> Login
+              </a>
+            </li>
+            )}
           </ul>
         </div>
       </div>

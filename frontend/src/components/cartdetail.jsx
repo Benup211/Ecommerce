@@ -151,7 +151,7 @@ function ShoppingCart() {
                         <input type="hidden" id="product_code" name="product_code" defaultValue="EPAYTEST" required />
                         <input type="hidden" id="product_service_charge" name="product_service_charge" defaultValue="0" required />
                         <input type="hidden" id="product_delivery_charge" name="product_delivery_charge" defaultValue="0" required />
-                        <input type="hidden" id="success_url" name="success_url" defaultValue="http://localhost:5173/cart" required />
+                        <input type="hidden" id="success_url" name="success_url" defaultValue="http://localhost:5173/order" required />
                         <input type="hidden" id="failure_url" name="failure_url" defaultValue="https://google.com" required />
                         <input type="hidden" id="signed_field_names" name="signed_field_names" defaultValue="total_amount,transaction_uuid,product_code" required />
                         <input type="hidden" id="signature" name="signature" value={`${hashInBase64}`} required />

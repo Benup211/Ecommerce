@@ -44,7 +44,7 @@ const Footer = () => {
                   <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '60px', backgroundColor: '#7c4dff', height: '2px' }} />
                   {categories.map((category) => (
                     <p key={category.name}>
-                      <a href="#!" className="text-white">{category.name}</a>
+                      <a href="#" className="text-white">{category.name}</a>
                     </p>
                   ))}
                 </div>
@@ -52,7 +52,7 @@ const Footer = () => {
                   <h6 className="text-uppercase fw-bold">Useful links</h6>
                   <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '60px', backgroundColor: '#7c4dff', height: '2px' }} />
                   <p>
-                    <a href="#!" className="text-white">Your Account</a>
+                    <a href="/account" className="text-white">Your Account</a>
                   </p>
                 </div>
                 <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">

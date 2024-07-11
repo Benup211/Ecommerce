@@ -6,6 +6,10 @@ import ProductDetail from './Detail.jsx'
 import CheckoutCart from './Cart.jsx'
 import QueryList from './Query.jsx'
 import EsewaPaymentForm from './components/payment.jsx'
+import RegistrationForm from './Register.jsx'
+import LoginForm from './Login.jsx'
+import AccountPage from './Account.jsx'
+import PlaceOrderComponent from './Order.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -36,6 +40,22 @@ const router = createBrowserRouter([
   {
     path:"/query/",
     element:<QueryList/>
+  },
+  {
+    path:"/register/",
+    element:<RegistrationForm/>
+  },
+  {
+    path:"/login/",
+    element:<LoginForm/>
+  },
+  {
+    path:"/account/",
+    element:<AccountPage/>
+  },
+  {
+    path:"/order/",
+    element:<PlaceOrderComponent/>
   }
 ]);
 
