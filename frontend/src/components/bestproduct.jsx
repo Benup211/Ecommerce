@@ -82,7 +82,7 @@ const BestProducts = () => {
         }}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id} style={{height:'30rem'}}>
+          <SwiperSlide key={product.id} style={{height:'32rem'}}>
             <Card className="p-2" style={{ width: '20rem',height:'100%', border: 'none' }}>
               <Card.Img
                 variant="top"

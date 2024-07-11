@@ -81,8 +81,8 @@ const Products = () => {
         }}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id} style={{height:'30rem'}}>
-            <Card className="p-2" style={{ width: '20rem;' ,height:'100%', border: 'none' }}>
+          <SwiperSlide key={product.id} style={{height:'32rem'}}>
+            <Card className="p-2" style={{ padding:'10px;',width: '20rem;' ,height:'100%', border: 'none' }}>
               <Card.Img
                 variant="top"
                 src={`http://127.0.0.1:8000${product.details_image[0]}`}

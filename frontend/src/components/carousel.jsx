@@ -42,9 +42,9 @@ const CarouselImage = () => {
                 <div>
                   <h1>{item.name}</h1>
                   <p>{item.desc}</p>
-                  <button type="button" className="btn btn-danger">
+                  <a href={`product/${item.laptop_id}`} className="btn btn-danger">
                     Shop Now
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
